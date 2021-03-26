@@ -31,8 +31,10 @@ export default class Dashboard extends Component {
             headers:{
                 'Content-Type': 'application/json',
                 "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Origin": '*'
-            }
+                "Access-Control-Allow-Origin": '*',
+                credentials: 'true',
+              }
+        })
             .then(res => res.json())
             .then(json => this.setState({ data: json }))
     }
