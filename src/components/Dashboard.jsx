@@ -33,8 +33,7 @@ export default class Dashboard extends Component {
                 "Access-Control-Allow-Credentials": true,
                 "Access-Control-Allow-Origin": '*'
               },
-            mode: 'no-cors',
-            credentials: 'same-origin',
+            credentials: 'true',
         })
             .then(res => res.json())
             .then(json => this.setState({ data: json }))
