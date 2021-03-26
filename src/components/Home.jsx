@@ -9,12 +9,12 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        const socket = io('http://localhost:8080', {transports: ['websocket']})
+        const socket = io('https://nifty-yalow-9797ba.netlify.app', {transports: ['websocket']})
         socket.on('issue', data => {
             this.setState({ data })
         })
 
-        fetch(`/groups`)
+        fetch(`https://nifty-yalow-9797ba.netlify.app/groups`)
         .then(res => res.json())
         .then(json => {
             if (json) {

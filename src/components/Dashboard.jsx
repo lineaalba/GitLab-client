@@ -9,7 +9,7 @@ export default class Dashboard extends Component {
     }
 
     async handleClick (id) {
-        await fetch(`/projects`, {
+        await fetch(`https://nifty-yalow-9797ba.netlify.app/projects`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json', id: id}
         })
@@ -18,7 +18,7 @@ export default class Dashboard extends Component {
     }
 
     async addWebhook (id) {
-        await fetch(`/hook/create`, {
+        await fetch(`https://nifty-yalow-9797ba.netlify.app/hook/create`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json', id: id},
         })
@@ -27,7 +27,7 @@ export default class Dashboard extends Component {
     }
            
     componentDidMount() {
-        fetch(`/groups`)
+        fetch(`https://nifty-yalow-9797ba.netlify.app/groups`)
             .then(res => res.json())
             .then(json => this.setState({ data: json }))
     }

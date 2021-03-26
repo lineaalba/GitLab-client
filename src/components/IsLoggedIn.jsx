@@ -8,7 +8,7 @@ export default class IsLoggedIn extends Component {
     }
 
     componentDidMount() {
-        fetch(`/groups`)
+        fetch(`https://nifty-yalow-9797ba.netlify.app/groups`)
         .then(res => res.json())
         .then(json => {
             if (json) {

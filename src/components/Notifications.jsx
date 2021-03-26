@@ -8,7 +8,7 @@ export default class Notifications extends Component {
     }
 
     componentDidMount() {
-        fetch(`/database`)
+        fetch(`https://nifty-yalow-9797ba.netlify.app/database`)
         .then(res => res.json())
         .then(json => {
             if (json) {
