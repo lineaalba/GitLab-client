@@ -28,6 +28,9 @@ export default class Dashboard extends Component {
            
     componentDidMount() {
         fetch(`https://protected-depths-73018.herokuapp.com/groups`, {
+            headers:{
+                'Content-Type': 'application/json'
+              },
             credentials: 'same-origin',
         })
             .then(res => res.json())
