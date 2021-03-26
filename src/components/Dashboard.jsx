@@ -31,6 +31,7 @@ export default class Dashboard extends Component {
             headers:{
                 'Content-Type': 'application/json'
               },
+            mode: 'no-cors',
             credentials: 'same-origin',
         })
             .then(res => res.json())
