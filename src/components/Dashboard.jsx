@@ -28,12 +28,14 @@ export default class Dashboard extends Component {
            
     componentDidMount() {
         fetch(`https://protected-depths-73018.herokuapp.com/groups`, {
-            headers:{
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Origin": '*',
-                credentials: 'true',
-              }
+            credentials: 'include',
+            mode: 'cors'
+            // headers:{
+            //     'Content-Type': 'application/json',
+            //     "Access-Control-Allow-Credentials": true,
+            //     "Access-Control-Allow-Origin": '*',
+            //     credentials: 'true',
+            //   }
         })
             .then(res => res.json())
             .then(json => this.setState({ data: json }))
