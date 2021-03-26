@@ -11,17 +11,28 @@ export default class Dashboard extends Component {
     async handleClick (id) {
         await fetch(`https://protected-depths-73018.herokuapp.com/projects`, {
             method: 'GET',
-            headers: {'Content-Type': 'application/json', id: id}
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                id: id,
+                'Access-Control-Allow-Credentials': true
+            }
         })
-            .then(res => res.json())
-            .then(json => this.setState({ response: json }))
+        .then(res => res.json())
+        .then(json => this.setState({ response: json }))
     }
 
     async addWebhook (id) {
         await fetch(`https://protected-depths-73018.herokuapp.com/hook/create`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json', id: id},
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                id: id,
+                'Access-Control-Allow-Credentials': true,
+            }
         })
+
         .then(res => res.json())
         .then(json => this.setState({ webhook: json}))
     }
@@ -29,10 +40,10 @@ export default class Dashboard extends Component {
     componentDidMount() {
         fetch(`https://protected-depths-73018.herokuapp.com/groups`, {
             metod: 'GET',
-            credentials: "include",
-      headers: {
-          "Access-Control-Allow-Credentials": true
-      }
+            credentials: 'include',
+            headers: {
+                'Access-Control-Allow-Credentials': true
+            }
         })
             .then(res => res.json())
             .then(json => this.setState({ data: json }))
