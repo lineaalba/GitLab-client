@@ -9,12 +9,12 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        const socket = io('https://nifty-yalow-9797ba.netlify.app', {transports: ['websocket']})
+        const socket = io('https://protected-depths-73018.herokuapp.com/', {transports: ['websocket']})
         socket.on('issue', data => {
             this.setState({ data })
         })
 
-        fetch(`https://nifty-yalow-9797ba.netlify.app/groups`)
+        fetch(`https://protected-depths-73018.herokuapp.com/groups`)
         .then(res => res.json())
         .then(json => {
             if (json) {

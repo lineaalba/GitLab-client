@@ -8,7 +8,7 @@ export default class IsLoggedIn extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://nifty-yalow-9797ba.netlify.app/groups`)
+        fetch(`https://protected-depths-73018.herokuapp.com/groups`)
         .then(res => res.json())
         .then(json => {
             if (json) {

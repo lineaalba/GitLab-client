@@ -9,7 +9,7 @@ export default class Dashboard extends Component {
     }
 
     async handleClick (id) {
-        await fetch(`https://nifty-yalow-9797ba.netlify.app/projects`, {
+        await fetch(`https://protected-depths-73018.herokuapp.com/projects`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json', id: id}
         })
@@ -18,7 +18,7 @@ export default class Dashboard extends Component {
     }
 
     async addWebhook (id) {
-        await fetch(`https://nifty-yalow-9797ba.netlify.app/hook/create`, {
+        await fetch(`https://protected-depths-73018.herokuapp.com/hook/create`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json', id: id},
         })
@@ -27,7 +27,7 @@ export default class Dashboard extends Component {
     }
            
     componentDidMount() {
-        fetch(`https://nifty-yalow-9797ba.netlify.app/groups`)
+        fetch(`https://protected-depths-73018.herokuapp.com/groups`)
             .then(res => res.json())
             .then(json => this.setState({ data: json }))
     }
