@@ -45,8 +45,8 @@ export default class Dashboard extends Component {
                 'Access-Control-Allow-Credentials': true
             }
         })
-            .then(res => res.json())
-            .then(json => this.setState({ data: json }))
+        .then(res => res.json())
+        .then(json => this.setState({ data: json }))
     }
 
     renderGroups() {
