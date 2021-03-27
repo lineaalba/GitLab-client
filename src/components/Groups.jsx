@@ -29,7 +29,10 @@ const Groups = (props) => {
                 res.forEach(element => {
                     console.log(element)
                     return (
-                        <Projects message={element} />
+                        <div>
+  <Projects message={element} />
+                        </div>
+                      
                     )
                 });
                
