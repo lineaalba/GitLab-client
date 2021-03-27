@@ -44,7 +44,7 @@ export default class Dashboard extends Component {
             method: 'GET',
             credentials: 'include',
             headers: {
-                // 'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
                 'Access-Control-Allow-Credentials': true,
             //     'Access-Control-Allow-Origin' : '*',
             }
@@ -58,9 +58,9 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <h3>Groups</h3>
-                {this.state.data.map((group, i) => (
+                {/* {this.state.data.map((group, i) => (
                     <h4 key={i} onClick={() => this.handleClick(group.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ group.name }</h4>
-                ))}
+                ))} */}
             </div>
         )
     }
