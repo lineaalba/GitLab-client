@@ -9,7 +9,7 @@ export default class IsLoggedIn extends Component {
 
     componentDidMount() {
         fetch(`https://protected-depths-73018.herokuapp.com/groups`, {
-            // mode: 'no-cors',
+            mode: 'cors',
             metod: 'GET',
             credentials: 'include',
             headers: {

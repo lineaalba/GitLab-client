@@ -24,7 +24,7 @@ export default class Dashboard extends Component {
 
     async addWebhook (id) {
         await fetch(`https://protected-depths-73018.herokuapp.com/hook/create`, {
-            mode: 'no-cors',
+            mode: 'cors',
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -41,7 +41,7 @@ export default class Dashboard extends Component {
            
     componentDidMount() {
         fetch(`https://protected-depths-73018.herokuapp.com/groups`, {
-            // mode: 'no-cors',
+            mode: 'cors',
             metod: 'GET',
             credentials: 'include',
             headers: {
