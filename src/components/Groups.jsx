@@ -26,9 +26,13 @@ const Groups = (props) => {
         .then(res => res.json())
         .then(res => {
             if (res) {
-                return (
-                    <Projects message={res} />
-                )
+                res.forEach(element => {
+                    console.log(element)
+                    return (
+                        <Projects message={element} />
+                    )
+                });
+               
             }
         })
     }
