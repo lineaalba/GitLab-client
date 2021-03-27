@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Webhook from './Webhook'
 import Notifications from './Notifications'
+import Groups from './Groups'
 
 export default class Dashboard extends Component {
     constructor() {
@@ -58,6 +59,7 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <h3>Groups</h3>
+                <Groups message={this.state.data} />
                 {/* {this.state.data.map((group, i) => (
                     <h4 key={i} onClick={() => this.handleClick(group.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ group.name }</h4>
                 ))} */}
@@ -86,8 +88,8 @@ export default class Dashboard extends Component {
     render() {   
         if (this.state.data.length > 0 && !this.state.response)  {
             return (this.renderGroups())
-        } else if (this.state.response) {
-            return (this.renderProjects())      
+        // } else if (this.state.response) {
+        //     return (this.renderProjects())      
         } else {
             return <h4 style={{color: '#fff', fontWeight: 'lighter'}}>You need to login to view your groups</h4>
         }
