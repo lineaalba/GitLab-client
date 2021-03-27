@@ -51,7 +51,6 @@ export default class Dashboard extends Component {
             }
         })
         .then(res => res.json())
-        .then(res => console.log(res))
         .then(json => this.setState({ data: json }))
     }
 
