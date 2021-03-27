@@ -15,8 +15,8 @@ export default class Home extends Component {
         })
 
         fetch('https://protected-depths-73018.herokuapp.com/groups', {
-            mode: 'no-cors',
-            metod: 'GET',
+            // mode: 'no-cors',
+            method: 'GET',
             credentials: 'include',
             headers: {
                 'Access-Control-Allow-Credentials': true,
