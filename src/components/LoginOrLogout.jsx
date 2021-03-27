@@ -13,7 +13,7 @@ export default class LoginOrLogout extends Component {
             credentials: 'include',
             headers: {
                 'Access-Control-Allow-Credentials': true,
-                // "access-control-allow-origin" : "*",
+                'Access-Control-Allow-Origin' : '*',
                 // "Content-type": "application/json"
             }
         })
