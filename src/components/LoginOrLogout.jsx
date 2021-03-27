@@ -9,9 +9,9 @@ export default class LoginOrLogout extends Component {
 
     componentDidMount() {
         fetch(`https://protected-depths-73018.herokuapp.com/groups`, {
+            mode: 'no-cors',
             metod: 'GET',
             credentials: 'include',
-            mode: 'no-cors',
             headers: {
                 'Access-Control-Allow-Credentials': true,
                 'Access-Control-Allow-Origin' : '*',
