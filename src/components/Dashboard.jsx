@@ -10,19 +10,19 @@ export default class Dashboard extends Component {
         this.state = { data: [], response: '', webhook: ''}
     }
 
-    async handleClick (id) {
-        await fetch(`https://protected-depths-73018.herokuapp.com/projects`, {
-            method: 'GET',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-                id: id,
-                'Access-Control-Allow-Credentials': true,
-            }
-        })
-        .then(res => res.json())
-        .then(json => this.setState({ response: json }))
-    }
+    // async handleClick (id) {
+    //     await fetch(`https://protected-depths-73018.herokuapp.com/projects`, {
+    //         method: 'GET',
+    //         credentials: 'include',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             id: id,
+    //             'Access-Control-Allow-Credentials': true,
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(json => this.setState({ response: json }))
+    // }
 
     async addWebhook (id) {
         await fetch('https://protected-depths-73018.herokuapp.com/hook/create', {

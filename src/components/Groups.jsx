@@ -6,6 +6,7 @@
  * @version 1.0.0
  */
 
+import HandleClick from './HandleClick'
 /**
 * Gets props from RealTimeIssues, with the data to return
 * and data to determine if the user is loggeed in or not.
@@ -15,10 +16,16 @@ const Groups = (props) => {
     if (props.message) {
         return (
             <div>
-                {props.message.map((data, i) => (
+                {props.message.map((group, i) => (
                     <div>
+
+{/* {this.state.data.map((group, i) => (
+                    <h4 key={i} onClick={() => this.handleClick(group.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ group.name }</h4>
+                ))} */}
+
+<h4 key={i} onClick={() => HandleClick(group.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ group.name }</h4>
                         {/* <h3 style={{color: '#7FFF00', fontWeight: 'lighter'}}>New issue since last time:</h3> */}
-                        <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Name: {data.name}</h4>
+                        {/* <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Name: {data.name}</h4> */}
                         {/* <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Issue: {issue.title}</h4>
                         <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Action: {issue.action}</h4>
                         <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Description: {issue.description}</h4> */}
