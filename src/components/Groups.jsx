@@ -19,7 +19,7 @@ const Groups = (props) => {
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
-                id: this.state.id,
+                id: id,
                 'Access-Control-Allow-Credentials': true,
             }
         })
