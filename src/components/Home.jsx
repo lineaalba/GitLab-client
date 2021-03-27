@@ -9,12 +9,20 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        const socket = io('https://protected-depths-73018.herokuapp.com/', {transports: ['websocket']})
+        const socket = io('https://protected-depths-73018.herokuapp.com/', {transports: ['websocket'], withCredentials: true,})
         socket.on('issue', data => {
             this.setState({ data })
         })
 
-        fetch(`https://protected-depths-73018.herokuapp.com/groups`)
+        fetch(`https://protected-depths-73018.herokuapp.com/groups`, {
+            mode: 'no-cors',
+            metod: 'GET',
+            credentials: 'include',
+            headers: {
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin' : '*',
+            }
+        })
         .then(res => res.json())
         .then(json => {
             if (json) {
