@@ -14,7 +14,7 @@ export default class Home extends Component {
             this.setState({ data })
         })
 
-        fetch(`https://protected-depths-73018.herokuapp.com/groups`, {
+        fetch('https://protected-depths-73018.herokuapp.com/groups', {
             mode: 'no-cors',
             metod: 'GET',
             credentials: 'include',
