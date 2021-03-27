@@ -42,7 +42,8 @@ export default class Dashboard extends Component {
             metod: 'GET',
             credentials: 'include',
             headers: {
-                'Access-Control-Allow-Credentials': true
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin' : '*',
             }
         })
         .then(res => res.json())
