@@ -12,7 +12,9 @@ export default class LoginOrLogout extends Component {
             metod: 'GET',
             credentials: 'include',
             headers: {
-                'Access-Control-Allow-Credentials': true
+                'Access-Control-Allow-Credentials': true,
+                "access-control-allow-origin" : "*",
+                "Content-type": "application/json"
             }
         })
         .then(res => res.json())
