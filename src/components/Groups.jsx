@@ -25,6 +25,7 @@ const Groups = (props) => {
         })
         .then(res => res.json())
         .then(res => {
+            console.log(res)
             return (
                 <Projects message={res} />
                 )
