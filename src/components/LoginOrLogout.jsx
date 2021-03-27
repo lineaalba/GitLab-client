@@ -11,11 +11,10 @@ export default class LoginOrLogout extends Component {
         fetch(`https://protected-depths-73018.herokuapp.com/groups`, {
             metod: 'GET',
             credentials: 'include',
-            mode: 'no-cors',
             headers: {
                 'Access-Control-Allow-Credentials': true,
-                "access-control-allow-origin" : "*",
-                "Content-type": "application/json"
+                // "access-control-allow-origin" : "*",
+                // "Content-type": "application/json"
             }
         })
         .then(res => res.json())
