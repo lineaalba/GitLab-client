@@ -8,7 +8,13 @@ export default class LoginOrLogout extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://protected-depths-73018.herokuapp.com/groups`)
+        fetch(`https://protected-depths-73018.herokuapp.com/groups`, {
+            metod: 'GET',
+            credentials: 'include',
+            headers: {
+                'Access-Control-Allow-Credentials': true
+            }
+        })
         .then(res => res.json())
         .then(json => {
             if (json) {
