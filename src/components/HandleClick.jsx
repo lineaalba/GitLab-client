@@ -20,6 +20,7 @@ export default class HandleClick extends Component {
         })
         .then(res => res.json())
         .then(json => this.setState({ response: json }))
+        .then(res => console.log(res))
     }
 
     render() {       

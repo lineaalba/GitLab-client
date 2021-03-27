@@ -12,7 +12,6 @@ import HandleClick from './HandleClick'
 * and data to determine if the user is loggeed in or not.
 */
 const Groups = (props) => {  
-    console.log(props.message)
     if (props.message) {
         return (
             <div>
