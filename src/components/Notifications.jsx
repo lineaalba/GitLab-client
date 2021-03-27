@@ -9,7 +9,6 @@ export default class Notifications extends Component {
 
     componentDidMount() {
         fetch('https://protected-depths-73018.herokuapp.com/database', {
-            mode: 'no-cors',
             method: 'GET',
             credentials: 'include',
             headers: {
