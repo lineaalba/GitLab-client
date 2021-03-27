@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Webhook from './Webhook'
 import Notifications from './Notifications'
 import Groups from './Groups'
-import Projects from './Projects'
+// import Projects from './Projects'
 
 export default class Dashboard extends Component {
     constructor() {
@@ -68,10 +68,10 @@ export default class Dashboard extends Component {
                 <br />
                 <h3>Projects</h3>
                 <p>Click on a project to add a webhook</p>
-                <Projects message={this.state.response} />
-                {/* {this.state.response.map((project, i) => (
+                {/* <Projects message={this.state.response} /> */}
+                {this.state.response.map((project, i) => (
                     <h4 key={i} onClick={() => this.addWebhook(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>
-                ))} */}
+                ))}
                 <br />
                 {this.renderGroups()}
                 <br />
