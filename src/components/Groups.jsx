@@ -6,7 +6,7 @@
  * @version 1.0.0
  */
 
-
+import Projects from './Projects'
 /**
 * Gets props from RealTimeIssues, with the data to return
 * and data to determine if the user is loggeed in or not.
@@ -31,7 +31,6 @@ const Groups = (props) => {
         })
     }
         
-    }
 
 
     if (props.message) {
