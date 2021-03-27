@@ -11,7 +11,8 @@
 * and data to determine if the user is loggeed in or not.
 */
 const Projects = (props) => {  
-    console.log(props)
+    console.log('hello')
+    console.log(props.message)
     if (props) {
         return (
             <div>
