@@ -18,8 +18,9 @@ export default class Home extends Component {
             method: 'GET',
             credentials: 'include',
             headers: {
+                'Content-Type': 'application/json',
                 'Access-Control-Allow-Credentials': true,
-                // 'Access-Control-Allow-Origin' : '*',
+                'Access-Control-Allow-Origin' : '*',
             }
         })
         .then(res => res.json())

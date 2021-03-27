@@ -12,8 +12,9 @@ export default class IsLoggedIn extends Component {
             method: "GET",
             credentials: "include",
             headers: {
-                "Access-Control-Allow-Credentials": true,
-                // 'Access-Control-Allow-Origin' : '*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin' : '*',
             }
         })
         .then(res => res.json())
