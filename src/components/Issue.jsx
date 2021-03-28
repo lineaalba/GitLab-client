@@ -17,10 +17,12 @@ const Issue = (props) => {
         return ( 
             <div>
                 <h3 style={{color: '#7FFF00', fontWeight: 'lighter'}}>New issue notification!</h3>
-                <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Project: {props.message.project.name}</h4>
-                <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Issue: {props.message.object_attributes.title}</h4>
-                <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Action: {props.message.object_attributes.action}</h4>
-                <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Description: {props.message.object_attributes.description}</h4>
+                <div style={{border: 'solid #fff', borderRadius: '0.2rem', width: '25rem', margin: '0 auto', marginBottom: '2rem'}}>
+                    <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Project: {props.message.project.name}</h4>
+                    <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Issue: {props.message.object_attributes.title}</h4>
+                    <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Action: {props.message.object_attributes.action}</h4>
+                    <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Description: {props.message.object_attributes.description}</h4>
+                </div>
             </div>
         )
     } else if (!props.isLoggedIn) {
