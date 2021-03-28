@@ -27,13 +27,13 @@ const Issue = (props) => {
         )
     } else if (!props.isLoggedIn) {
         return (
-            <h3>Login to get real-time issues</h3>
+            <h3>Login to get real-time issue notifications</h3>
         )
     } else {
         return (
             <div>
                 <h3>No issue notifications to show, right now</h3>
-                <h4 style={{color: '#fff', fontWeight: 'lighter'}}>If you have webhooks on projects, you will get real-time issues here</h4>
+                <h4 style={{color: '#fff', fontWeight: 'lighter'}}>If you have webhooks on projects, you will get real-time issue events here</h4>
             </div>
         )
     }

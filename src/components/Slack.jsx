@@ -29,13 +29,9 @@
     * Posts input value and project id and sets state added to true to get confirmation message
     */
       async onSubmit(e) {
-        // TODO: Remove form when user has clicked send
         e.preventDefault()
-        // Do not add url if input includes possible harmful elements
-        if (this.state.input.incluces('<' || '>' || '/')) {
-            // TODO: return not valid 
-            return
-        } else {
+            // TODO: Remove form when user has clicked send
+            // TODO: Blacklist possible harmful signs
             await fetch('/slack', {
                     method: 'POST',
                     credentials: 'include',
@@ -47,7 +43,6 @@
             })
             .then(res => res.json())
             .then(this.setState({ added: true }))
-        }
     }
  
      render() { 
