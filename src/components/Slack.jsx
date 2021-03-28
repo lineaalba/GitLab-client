@@ -33,7 +33,7 @@
             // TODO: Remove form when user has clicked send
             // TODO: Blacklist possible harmful signs
       
-            await fetch('/slack', {
+            await fetch('https://protected-depths-73018.herokuapp.com/slack', {
                     method: 'POST',
                     credentials: 'include',
                     body: JSON.stringify({ url: this.state.input, id: this.props.id }),
