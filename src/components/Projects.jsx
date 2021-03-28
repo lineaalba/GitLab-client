@@ -13,14 +13,15 @@
 const Projects = (props) => {  
     console.log('hello')
     console.log(props.message)
-    if (props) {
+    if (props.message) {
         return (
             <div>
-                {props.message.map((project, i) => (
+                props
+                {/* {props.message.map((project, i) => (
                     <div>
                         <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Project: {project.name}</h4>
                     </div>
-             ))}
+             ))} */}
             </div>
         )
     }  else {
