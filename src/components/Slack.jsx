@@ -32,6 +32,8 @@
         e.preventDefault()
             // TODO: Remove form when user has clicked send
             // TODO: Blacklist possible harmful signs
+            console.log(this.state.input)
+            console.log(this.props.id)
             await fetch('/slack', {
                     method: 'POST',
                     credentials: 'include',
