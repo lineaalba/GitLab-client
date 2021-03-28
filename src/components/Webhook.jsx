@@ -10,7 +10,6 @@
  */
  const Webhook = (props) => {
      // TODO: also return a text if webhook already exists
-     console.log(props)
      if (props.message === '') {
          return(
              <div>
