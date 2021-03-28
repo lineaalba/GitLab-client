@@ -31,13 +31,13 @@
                     headers: {
                         'Content-Type': 'application/json',
                         url: this.state.input,
+                        id: this.props.id,
                         'Access-Control-Allow-Credentials': true,
                     }
                 })
                 .then(res => res.json())
                 .then(res => console.log(res))
                 .then(this.setState({ added: true }))
-                .then(console.log(this.state.added))
     }
  
      render() { 

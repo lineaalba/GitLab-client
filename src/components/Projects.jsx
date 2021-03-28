@@ -16,7 +16,7 @@ import Slack from './Slack'
 export default class Projects extends Component {
    constructor() {
        super()
-       this.state = { webhook: '' }
+       this.state = { webhook: '', id: '' }
    }
 
     /**
@@ -35,16 +35,15 @@ export default class Projects extends Component {
     })
 
     .then(res => res.json())
-    .then(json => this.setState({ webhook: json}))
+    .then(json => this.setState({ webhook: json, id: id}))
 }
-
 
     render() { 
         if (this.props.message.length > 0) {
             return (
                 <div> 
                     <Webhook message={this.state.webhook}/>
-                    <Slack message={this.state.webhook} />
+                    <Slack message={this.state.webhook} id={this.state.id} />
                     <br />
                     <p>Click on a project to add a webhook</p>
                     {this.props.message.map((project, i) => (
