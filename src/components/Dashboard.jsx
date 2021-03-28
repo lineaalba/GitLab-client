@@ -8,7 +8,7 @@ import React, { Component } from 'react'
 import Groups from './Groups'
 
 /**
-* The dashboard that renders groups  if the user is logged in.
+* The dashboard that renders groups if the user is logged in.
 */
 export default class Dashboard extends Component {
     constructor() {
@@ -35,7 +35,6 @@ export default class Dashboard extends Component {
     render() {   
         return (
             <div>
-                <h3>Groups</h3>
                 <Groups message={this.state.data} />
             </div>
         )

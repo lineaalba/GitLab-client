@@ -36,23 +36,29 @@ export default class Projects extends Component {
 
 
     render() { 
-        if (this.props.message) {
+        console.log(this.props.message)
+        if (this.props.message.length > 0) {
             return (
                 <div> 
                     <Webhook message={this.state.webhook}/>
                     <br />
-                    <div>
-                        {this.props.message.map((project, i) => (
-                            <div>
-                                <h4 key={i} onClick={() => this.addWebhook(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>                        
-                            </div>
-                        ))}
-                    </div>
+                    <h3>Projects</h3>
+                    <p>Click on a project to add a webhook</p>
+                    {this.props.message.map((project, i) => (
+                        <div>
+                            <h4 key={i} onClick={() => this.addWebhook(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>                        
+                        </div>
+                    ))}
+                    <p style={{color: '#fff'}}>______________________________</p>
                 </div>
             )
         }  else {
             return (
-                <h3 style={{color: '#fff', fontWeight: 'lighter'}}>No projects</h3>
+                <div>
+                    <h3>Projects</h3>
+                    <h4 style={{color: 'tomato'}}>This group has no projects</h4>
+                    <p style={{color: '#fff'}}>______________________________</p>
+                </div>
             )
         }
     }
