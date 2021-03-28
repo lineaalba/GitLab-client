@@ -20,11 +20,11 @@
     handleChange = (e) => {
         e.preventDefault()
         this.setState({...this.state.input, input: e.target.value})
-        console.log(this.state.input)
     }
 
     async onSubmit(e) {
         e.preventDefault()
+        console.log(this.state.input)
         await fetch('https://protected-depths-73018.herokuapp.com/slack', {
                     method: 'POST',
                     credentials: 'include',
@@ -38,7 +38,7 @@
                 .then(res => res.json())
                 .then(res => {
                     if (res) {
-                        console.log('res' + res)
+                        console.log('res' + res.json())
                     }})
                 .then(json => this.setState({ added: json }))
     }
