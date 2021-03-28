@@ -9,29 +9,34 @@
  import Confirmation from './Confirmation'
  
  /**
- * .
+ * Renders a input field for the user to fill in with Slack webhook url to get notifications to Slack
  */
  export default class Slack extends Component {
     constructor() {
         super()
         this.state = { webhook: '', input: '', added: false }
     }
-
+     
+    /**
+    * Set input value to state
+    */
     handleChange = (e) => {
         e.preventDefault()
         this.setState({...this.state.input, input: e.target.value})
     }
 
+    /**
+    * Posts input value and project id and sets state added to true to get confirmation message
+    */
     async onSubmit(e) {
+        // TODO: Remove form when user has clicked send
         e.preventDefault()
-        console.log(this.state.input)
         await fetch('https://protected-depths-73018.herokuapp.com/slack', {
                     method: 'POST',
                     credentials: 'include',
+                    body: JSON.stringify({ url: this.state.input, id: this.props.id }),
                     headers: {
                         'Content-Type': 'application/json',
-                        url: this.state.input,
-                        id: this.props.id,
                         'Access-Control-Allow-Credentials': true,
                     }
                 })
