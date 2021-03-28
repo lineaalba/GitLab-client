@@ -16,7 +16,7 @@
                 <hr style={{background: '#fff'}} />
                 <h3 style={{color: '#7FFF00', fontWeight: 'lighter'}}>New issue(s) since last time:</h3>
                 {props.message.data.map((issue, i) => (
-                    <div style={{border: 'solid #fff', borderRadius: '0.2rem', width: '25rem', margin: '0 auto', marginBottom: '2rem'}}>
+                    <div className='notification-box'>
                         <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Project: {issue.project}</h4>
                         <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Issue: {issue.title}</h4>
                         <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Action: {issue.action}</h4>

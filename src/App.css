@@ -52,3 +52,10 @@ body {
   padding: 0.3rem;
 }
 
+.notification-box {
+  border: solid #fff;
+  border-radius: 0.2rem;
+  width: 25rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
