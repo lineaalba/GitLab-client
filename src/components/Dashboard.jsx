@@ -62,32 +62,33 @@ export default class Dashboard extends Component {
         )
     }
 
-    renderProjects() {
-        return (
-            <div>
-                <Webhook message={this.state.webhook}/>
-                <br />
-                <h3>Projects</h3>
-                <p>Click on a project to add a webhook</p>
-                {/* <Projects message={this.state.response} /> */}
-                {this.state.response.map((project, i) => (
-                    <h4 key={i} onClick={() => this.addWebhook(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>
-                ))}
-                <br />
-                {this.renderGroups()}
-                <br />
-                <Notifications />
-            </div>
-        )
-    }
+    // renderProjects() {
+    //     return (
+    //         <div>
+    //             <Webhook message={this.state.webhook}/>
+    //             <br />
+    //             <h3>Projects</h3>
+    //             <p>Click on a project to add a webhook</p>
+    //             {/* <Projects message={this.state.response} /> */}
+    //             {this.state.response.map((project, i) => (
+    //                 <h4 key={i} onClick={() => this.addWebhook(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>
+    //             ))}
+    //             <br />
+    //             {this.renderGroups()}
+    //             <br />
+    //             <Notifications />
+    //         </div>
+    //     )
+    // }
 
     render() {   
-        if (this.state.data.length > 0 && !this.state.response)  {
-            return (this.renderGroups())
-        } else if (this.state.response) {
-            return (this.renderProjects())      
-        } else {
-            return <h4 style={{color: '#fff', fontWeight: 'lighter'}}>You need to login to view your groups</h4>
-        }
+        return (this.renderGroups())
+        // if (this.state.data.length > 0 && !this.state.response)  {
+        //     return (this.renderGroups())
+        // } else if (this.state.response) {
+        //     return (this.renderProjects())      
+        // } else {
+        //     return <h4 style={{color: '#fff', fontWeight: 'lighter'}}>You need to login to view your groups</h4>
+        // }
     }
 }

@@ -6,7 +6,7 @@
  * @version 1.0.0
  */
  import React, { Component } from 'react'
-//  import Projects from './Projects'
+ import Projects from './Projects'
  
  export default class Groups extends Component {
     constructor() {
@@ -26,11 +26,10 @@
         })
         .then(res => res.json())
         .then(json => this.setState({ response: json }))
-        .then(res => console.log(this.state.response))
     }
 
-     render() { 
-        return (  
+    renderGroups() {
+        return (
             <div>
                 {this.props.message.map((project, i) => (
                     <div>
@@ -39,6 +38,30 @@
                 ))}
             </div>
         )
+    }
+
+    renderProjects() {
+        return (
+            <div>
+                <h3>Projects</h3>
+                <p>Click on a project to add a webhook</p>
+                <Projects message={this.state.response} />
+                <br />
+                {this.renderGroups()}
+            </div>
+        )
+    }
+
+     render() { 
+        if (!this.state.response) {
+            return (  
+            (this.renderGroups())
+            )
+        } else {
+            return (
+                (this.renderProjects())
+            )
+        }
      }
  }
  

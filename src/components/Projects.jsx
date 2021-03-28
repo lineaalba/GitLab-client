@@ -11,22 +11,20 @@
 * and data to determine if the user is loggeed in or not.
 */
 const Projects = (props) => {  
-    console.log('hello')
     console.log(props.message)
     if (props.message) {
         return (
             <div>
-                props
-                {/* {props.message.map((project, i) => (
+                {props.message.map((project, i) => (
                     <div>
                         <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Project: {project.name}</h4>
                     </div>
-             ))} */}
+             ))}
             </div>
         )
     }  else {
         return (
-            <h3>No projects</h3>
+            <h3 style={{color: '#fff', fontWeight: 'lighter'}}>No projects</h3>
         )
     }
 }
