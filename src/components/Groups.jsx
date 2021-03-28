@@ -9,11 +9,36 @@
 //  import Projects from './Projects'
  
  export default class Groups extends Component {
-     render() {   
-        console.log(this.props.message)
-         return (
-             <h2 style={{color: '#fff', fontWeight: 'lighter'}}>Hello</h2>
-         )
+    constructor() {
+        super()
+        this.state = { response: '' }
+    }
+
+    async handleClick (id) {
+        await fetch(`https://protected-depths-73018.herokuapp.com/projects`, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                id: id,
+                'Access-Control-Allow-Credentials': true,
+            }
+        })
+        .then(res => res.json())
+        .then(json => this.setState({ response: json }))
+        .then(res => console.log(this.state.response))
+    }
+
+     render() { 
+        return (  
+            <div>
+                {this.props.message.map((project, i) => (
+                    <div>
+                        <h4 key={i} onClick={() => this.handleClick(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>
+                    </div>
+                ))}
+            </div>
+        )
      }
  }
  
