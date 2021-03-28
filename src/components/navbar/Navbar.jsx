@@ -1,42 +1,24 @@
-import React from 'react'
-import { MenuItemsLogin, MenuItemsLogout } from './MenuItems'
-import './Navbar.css'
+// import React from 'react'
+// import { MenuItemsLogin, MenuItemsLogout } from './MenuItems'
+// import './Navbar.css'
 
-const Navbar = (props) => {
-    if (props.message) {
-        return (
-            <nav className='navbarItems'>
-                {MenuItemsLogout.map((item, index) => {
-                    return (
-                        <ul key={index}>
-                            <a className={item.cName} href={item.url}>{item.title}</a>
-                        </ul>
-                    )
-                })}
-            </nav>
-        )
-    } else {
-        return (
-            <nav className='navbarItems'>
-                {MenuItemsLogin.map((item, index) => {
-                    return (
-                        <ul key={index}>
-                            <a className={item.cName} href={item.url}>{item.title}</a>
-                        </ul>
-                    )
-                })}
-            </nav>
-        )
-    }
-}
-
-export default Navbar
-
-// export default class Navbar extends Component {
-//     render() {
-//         return(
+// const Navbar = (props) => {
+//     if (props.message) {
+//         return (
 //             <nav className='navbarItems'>
-//                 {MenuItems.map((item, index) => {
+//                 {MenuItemsLogout.map((item, index) => {
+//                     return (
+//                         <ul key={index}>
+//                             <a className={item.cName} href={item.url}>{item.title}</a>
+//                         </ul>
+//                     )
+//                 })}
+//             </nav>
+//         )
+//     } else {
+//         return (
+//             <nav className='navbarItems'>
+//                 {MenuItemsLogin.map((item, index) => {
 //                     return (
 //                         <ul key={index}>
 //                             <a className={item.cName} href={item.url}>{item.title}</a>
@@ -47,3 +29,68 @@ export default Navbar
 //         )
 //     }
 // }
+
+// export default Navbar
+
+// // export default class Navbar extends Component {
+// //     render() {
+// //         return(
+// //             <nav className='navbarItems'>
+// //                 {MenuItems.map((item, index) => {
+// //                     return (
+// //                         <ul key={index}>
+// //                             <a className={item.cName} href={item.url}>{item.title}</a>
+// //                         </ul>
+// //                     )
+// //                 })}
+// //             </nav>
+// //         )
+// //     }
+// // }
+
+/**
+ * The Navbar component.
+ *
+ * @author Filippa Jakobsson
+ * @version 1.0
+ */
+
+ import React from 'react'
+ import { MenuItemsLogin, MenuItemsLogout } from './MenuItems'
+ import './Navbar.css'
+ 
+ /**
+  * Returns menu options depending on the props from IsLoggedIn component
+  * that indicates if the user is logged in or logged out.
+  *
+  */
+ const Navbar = (props) => {
+     if (props.message) {
+         return (
+             <nav className='navbarItems'>
+                 {MenuItemsLogout.map((item, index) => {
+                     return (
+                         <ul key={index}>
+                             <a className={item.cName} href={item.url}>{item.title}</a>
+                         </ul>
+                     )
+                 })}
+             </nav>
+         )
+     } else {
+         return (
+             <nav className='navbarItems'>
+                 {MenuItemsLogin.map((item, index) => {
+                     return (
+                         <ul key={index}>
+                             <a className={item.cName} href={item.url}>{item.title}</a>
+                         </ul>
+                     )
+                 })}
+             </nav>
+         )
+     }
+ }
+ 
+ // Exports
+ export default Navbar
