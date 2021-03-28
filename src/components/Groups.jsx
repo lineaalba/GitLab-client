@@ -9,14 +9,10 @@
 //  import Projects from './Projects'
  
  export default class Groups extends Component {
-     constructor() {
-         super()
-         this.state = { data: '' }
-     }
-
      render() {   
+        console.log(this.props.message)
          return (
-             <h2>{this.props.message}</h2>
+             <h2 style={{color: '#fff', fontWeight: 'lighter'}}>Hello</h2>
          )
      }
  }
