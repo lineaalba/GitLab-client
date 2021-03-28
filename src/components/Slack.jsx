@@ -32,7 +32,7 @@
         // TODO: Remove form when user has clicked send
         e.preventDefault()
         // Do not add url if input includes possible harmful elements
-        if (this.state.input.incluces('<' || '>' || '/')) {,
+        if (this.state.input.incluces('<' || '>' || '/')) {
             // TODO: return not valid 
             return
         } else {
