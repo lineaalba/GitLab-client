@@ -6,6 +6,7 @@
  */
 
  import React, { Component } from 'react'
+ import Confirmation from './Confirmation'
  
  /**
  * .
@@ -13,24 +14,8 @@
  export default class Slack extends Component {
     constructor() {
         super()
-        this.state = { webhook: '', input: '' }
+        this.state = { webhook: '', input: '', added: '' }
     }
- 
-    /**
-     * Fetching slack 
-     */
-    // componentDidMount() {
-    //     fetch('https://protected-depths-73018.herokuapp.com/slack', {
-    //         method: 'POST',
-    //         credentials: 'include',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Access-Control-Allow-Credentials': true,
-    //         }
-    //     })
-    //     .then(res => res.json())
-    //     .then(json => this.setState({ data: json }))
-    // }
 
     handleChange = (e) => {
         e.preventDefault()
@@ -38,9 +23,19 @@
         this.setState({input: e.target.value})
     }
 
-    onSubmit (e) {
+    async onSubmit(e) {
         e.preventDefault()
-        console.log(this.state.input)
+        await fetch('https://protected-depths-73018.herokuapp.com/slack', {
+                    method: 'POST',
+                    credentials: 'include',
+                    body: JSON.stringify({ url: this.state.input }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Credentials': true,
+                    }
+                })
+                .then(res => res.json())
+                .then(json => this.setState({ added: json }))
     }
  
      render() { 
@@ -58,6 +53,9 @@
                    <input type="text" name="url" placeholder="Slack url here" onChange={this.handleChange}/><br/>
                    <button>Save</button>
                    </form>
+                   <div>
+                       <Confirmation message={this.state.added} />
+                   </div>
                </div>
            )
         }
