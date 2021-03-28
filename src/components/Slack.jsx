@@ -19,7 +19,7 @@
 
     handleChange = (e) => {
         e.preventDefault()
-        this.setState({input: e.target.value})
+        this.setState({...this.state.input, input: e.target.value})
         console.log(this.state.input)
     }
 
@@ -51,8 +51,8 @@
             return (
                <div>
                    <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Add Slack webhook url to get issue notifications</h4>
-                   <form onSubmit={this.onSubmit}>
-                   <input type="text" name="url" placeholder="Slack url here" onChange={this.handleChange}/><br/>
+                   <form onSubmit={(e) => this.onSubmit(e)}>
+                   <input type="text" name="url" placeholder="Slack url here" onChange={(e) => this.handleChange(e)}/><br/>
                    <button>Save</button>
                    </form>
                    <div>
