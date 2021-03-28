@@ -5,8 +5,9 @@
  * @version 1.0.0
  */
 
-import Webhook from './Webhook'
 import React, { Component } from 'react'
+import Webhook from './Webhook'
+import Slack from './Slack'
 
 /**
 * Gets props from Groups component to render and return the correct projects
@@ -43,6 +44,7 @@ export default class Projects extends Component {
             return (
                 <div> 
                     <Webhook message={this.state.webhook}/>
+                    <Slack message={this.state.webhook} />
                     <br />
                     <p>Click on a project to add a webhook</p>
                     {this.props.message.map((project, i) => (
