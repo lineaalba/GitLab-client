@@ -33,7 +33,8 @@
     // }
 
     handleChange = (e) => {
-        console.log('e: ' + e.target)
+        console.log('e: ' + e)
+        console.log(e.data)
         this.setState({input: e.target.value})
     }
 
