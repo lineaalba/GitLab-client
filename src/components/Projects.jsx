@@ -5,29 +5,77 @@
  * @author Filippa Jakobsson
  * @version 1.0.0
  */
-
+ import Webhook from './Webhook'
 /**
 * Gets props from RealTimeIssues, with the data to return
 * and data to determine if the user is loggeed in or not.
 */
-const Projects = (props) => {  
-    console.log(props.message)
-    if (props.message) {
-        return (
-            <div>
-                {props.message.map((project, i) => (
+
+import React, { Component } from 'react'
+
+export default class Projects extends Component {
+   constructor() {
+       super()
+       this.state = { webhook: '' }
+   }
+
+   async addWebhook (id) {
+    await fetch('https://protected-depths-73018.herokuapp.com/hook/create', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            id: id,
+            'Access-Control-Allow-Credentials': true,
+        }
+    })
+
+    .then(res => res.json())
+    .then(json => this.setState({ webhook: json}))
+}
+
+
+    render() { 
+        if (this.props.message) {
+            return (
+                <div> 
+                    <Webhook message={this.state.webhook}/>
+                    <br />
                     <div>
-                        <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Project: {project.name}</h4>
+                        {this.props.message.map((project, i) => (
+                            <div>
+                                <h4 key={i} onClick={() => this.addWebhook(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>                        
+                            </div>
+                        ))}
                     </div>
-             ))}
-            </div>
-        )
-    }  else {
-        return (
-            <h3 style={{color: '#fff', fontWeight: 'lighter'}}>No projects</h3>
-        )
+                </div>
+            )
+        }  else {
+            return (
+                <h3 style={{color: '#fff', fontWeight: 'lighter'}}>No projects</h3>
+            )
+        }
     }
 }
 
-// Exports
-export default Projects
+// const Projects = (props) => {  
+//     console.log(props.message)
+//     if (props.message) {
+//         return (
+//             <div>
+//                 {props.message.map((project, i) => (
+//                     <div>
+//                         <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Project: {project.name}</h4>
+//                     </div>
+//              ))}
+//             </div>
+//         )
+//     }  else {
+//         return (
+//             <h3 style={{color: '#fff', fontWeight: 'lighter'}}>No projects</h3>
+//         )
+//     }
+// }
+
+// // Exports
+// export default Projects

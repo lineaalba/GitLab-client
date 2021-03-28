@@ -7,6 +7,7 @@
  */
  import React, { Component } from 'react'
  import Projects from './Projects'
+ import Notifications from './Notifications'
  
  export default class Groups extends Component {
     constructor() {
@@ -48,6 +49,8 @@
                 <Projects message={this.state.response} />
                 <br />
                 {this.renderGroups()}
+                <br />
+                <Notifications />
             </div>
         )
     }
