@@ -1,24 +1,27 @@
 /**
- * Component to return real-time issues if the user is logged in
- * and if the user has webhook(s) on projekt(s).
+ * The projects component.
  *
  * @author Filippa Jakobsson
  * @version 1.0.0
  */
- import Webhook from './Webhook'
-/**
-* Gets props from RealTimeIssues, with the data to return
-* and data to determine if the user is loggeed in or not.
-*/
 
+import Webhook from './Webhook'
 import React, { Component } from 'react'
 
+/**
+* Gets props from Groups component to render and return the correct projects
+* Also returns the webhook component
+*/
 export default class Projects extends Component {
    constructor() {
        super()
        this.state = { webhook: '' }
    }
 
+    /**
+    * Adds a webhook if the user has clicked on a project, 
+    * if the user has not already a webhook on that specific project
+    */
    async addWebhook (id) {
     await fetch('https://protected-depths-73018.herokuapp.com/hook/create', {
         method: 'POST',

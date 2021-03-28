@@ -50,6 +50,8 @@
                             <h4 key={i} onClick={() => this.handleClick(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>
                         </div>
                     ))}
+                    <br />
+                    <Notifications />
                 </div>
             )
         } else {
@@ -68,8 +70,6 @@
                 <Projects message={this.state.response} />
                 <br />
                 {this.renderGroups()}
-                <br />
-                <Notifications />
             </div>
         )
     }
