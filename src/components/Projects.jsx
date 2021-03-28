@@ -16,7 +16,7 @@ import React, { Component } from 'react'
 export default class Projects extends Component {
    constructor() {
        super()
-       this.state = { webhook: '' }
+       this.state = { webhook: [] }
    }
 
    async addWebhook (id) {
@@ -36,7 +36,6 @@ export default class Projects extends Component {
 
 
     render() { 
-        console.log(this.props.message)
         if (this.props.message.length > 0) {
             return (
                 <div> 
@@ -63,25 +62,3 @@ export default class Projects extends Component {
         }
     }
 }
-
-// const Projects = (props) => {  
-//     console.log(props.message)
-//     if (props.message) {
-//         return (
-//             <div>
-//                 {props.message.map((project, i) => (
-//                     <div>
-//                         <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Project: {project.name}</h4>
-//                     </div>
-//              ))}
-//             </div>
-//         )
-//     }  else {
-//         return (
-//             <h3 style={{color: '#fff', fontWeight: 'lighter'}}>No projects</h3>
-//         )
-//     }
-// }
-
-// // Exports
-// export default Projects
