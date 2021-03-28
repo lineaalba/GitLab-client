@@ -10,7 +10,6 @@
  */
  const Confirmation = (props) => {
     // TODO: also return a text if webhook already exists
-    console.log(props.message)
     if (props.message === false) {
         return(
             <div>

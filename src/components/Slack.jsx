@@ -32,15 +32,13 @@
         e.preventDefault()
             // TODO: Remove form when user has clicked send
             // TODO: Blacklist possible harmful signs
-        
+      
             await fetch('/slack', {
                     method: 'POST',
                     credentials: 'include',
-                    // body: JSON.stringify({ url: this.state.input, id: this.props.id }),
+                    body: JSON.stringify({ url: this.state.input, id: this.props.id }),
                     headers: {
                         'Content-Type': 'application/json',
-                        url: this.state.input,
-                        id: this.props.id,
                         'Access-Control-Allow-Credentials': true,
                     }
             })
