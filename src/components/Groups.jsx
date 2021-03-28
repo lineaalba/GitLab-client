@@ -12,7 +12,6 @@ import Projects from './Projects'
 * and data to determine if the user is loggeed in or not.
 */
 const Groups = (props) => {  
-
     const handleClick = async (id) => {
         await fetch(`https://protected-depths-73018.herokuapp.com/projects`, {
             method: 'GET',
@@ -27,7 +26,6 @@ const Groups = (props) => {
         .then(res => {
             if (res) {
                 res.forEach(element => {
-                    console.log(element)
                     return (
                         <div>
   <Projects message={element} />

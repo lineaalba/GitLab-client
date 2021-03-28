@@ -16,13 +16,16 @@ const Projects = (props) => {
     if (props) {
         return (
             <div>
-              
-              
+                {props.message.map((project, i) => (
+                    <div>
+                        <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Project: {project.name}</h4>
+                    </div>
+             ))}
             </div>
         )
     }  else {
         return (
-            <div>No props</div>
+            <h3>No projects</h3>
         )
     }
 }
