@@ -9,7 +9,7 @@
  * Returns text that slack url was successfully added, if it is added.
  */
  const Confirmation = (props) => {
-     console.log(props.message)
+     console.log('confirmation: ' + props.message)
     // TODO: also return a text if webhook already exists
     if (props.message === '') {
         return(
