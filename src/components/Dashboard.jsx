@@ -1,46 +1,25 @@
+/**
+ * The Dashboard component.
+ *
+ * @author Filippa Jakobsson
+ * @version 1.0
+ */
 import React, { Component } from 'react'
-// import Webhook from './Webhook'
-// import Notifications from './Notifications'
 import Groups from './Groups'
-// import Projects from './Projects'
 
+/**
+* The dashboard that renders groups  if the user is logged in.
+*/
 export default class Dashboard extends Component {
     constructor() {
         super()
-        this.state = { data: [], response: '', webhook: ''}
+        this.state = { data: [] }
     }
 
-    // async handleClick (id) {
-    //     await fetch(`https://protected-depths-73018.herokuapp.com/projects`, {
-    //         method: 'GET',
-    //         credentials: 'include',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             id: id,
-    //             'Access-Control-Allow-Credentials': true,
-    //         }
-    //     })
-    //     .then(res => res.json())
-    //     .then(json => this.setState({ response: json }))
-    // }
-
-    async addWebhook (id) {
-        await fetch('https://protected-depths-73018.herokuapp.com/hook/create', {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-                id: id,
-                'Access-Control-Allow-Credentials': true,
-            }
-        })
-
-        .then(res => res.json())
-        .then(json => this.setState({ webhook: json}))
-    }
-           
+    /**
+     * Fetching groups if the user is authenticated
+     */
     componentDidMount() {
-        // Fetch groups
         fetch('https://protected-depths-73018.herokuapp.com/groups', {
             method: 'GET',
             credentials: 'include',
@@ -53,42 +32,12 @@ export default class Dashboard extends Component {
         .then(json => this.setState({ data: json }))
     }
 
-    renderGroups() {
+    render() {   
         return (
             <div>
                 <h3>Groups</h3>
                 <Groups message={this.state.data} />
             </div>
         )
-    }
-
-    // renderProjects() {
-    //     return (
-    //         <div>
-    //             <Webhook message={this.state.webhook}/>
-    //             <br />
-    //             <h3>Projects</h3>
-    //             <p>Click on a project to add a webhook</p>
-    //             {/* <Projects message={this.state.response} /> */}
-    //             {this.state.response.map((project, i) => (
-    //                 <h4 key={i} onClick={() => this.addWebhook(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>
-    //             ))}
-    //             <br />
-    //             {this.renderGroups()}
-    //             <br />
-    //             <Notifications />
-    //         </div>
-    //     )
-    // }
-
-    render() {   
-        return (this.renderGroups())
-        // if (this.state.data.length > 0 && !this.state.response)  {
-        //     return (this.renderGroups())
-        // } else if (this.state.response) {
-        //     return (this.renderProjects())      
-        // } else {
-        //     return <h4 style={{color: '#fff', fontWeight: 'lighter'}}>You need to login to view your groups</h4>
-        // }
     }
 }
