@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Webhook from './Webhook'
-import Notifications from './Notifications'
+// import Webhook from './Webhook'
+// import Notifications from './Notifications'
 import Groups from './Groups'
 // import Projects from './Projects'
 
