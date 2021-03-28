@@ -40,17 +40,23 @@
     * projects of that group
     */
     renderGroups() {
-        return (
-            <div>
-                <h3>Groups</h3>
-                <p>Click on a group to view projects</p>
-                {this.props.message.map((project, i) => (
-                    <div>
-                        <h4 key={i} onClick={() => this.handleClick(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>
-                    </div>
-                ))}
-            </div>
-        )
+        if (this.props.message) {
+            return (
+                <div>
+                    <h3>Groups</h3>
+                    <p>Click on a group to view projects</p>
+                    {this.props.message.map((project, i) => (
+                        <div>
+                            <h4 key={i} onClick={() => this.handleClick(project.id)} style={{cursor: 'pointer', color: '#fff', fontWeight: 'lighter'}}>{ project.name }</h4>
+                        </div>
+                    ))}
+                </div>
+            )
+        } else {
+            return <h3>You need to login to view your groups, project and issues</h3>
+        }
+
+        
     }
 
     /**
