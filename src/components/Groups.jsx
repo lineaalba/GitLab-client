@@ -40,7 +40,8 @@
     * projects of that group
     */
     renderGroups() {
-        if (this.props.message) {
+        console.log(this.props.message)
+        if (this.props.message.length > 0) {
             return (
                 <div>
                     <h3>Groups</h3>
