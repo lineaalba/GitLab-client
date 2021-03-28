@@ -64,6 +64,7 @@ body {
   border: 2px solid rgb(197, 90, 19);
   border-radius: 0.2rem;
   padding: 0.3rem 0.3rem;
+  width: 10rem;
 }
 
 .saveButton {
