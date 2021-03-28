@@ -19,19 +19,20 @@
 
     handleChange = (e) => {
         e.preventDefault()
-        console.log(e.target.value)
         this.setState({input: e.target.value})
     }
 
     async onSubmit(e) {
         e.preventDefault()
+        console.log(e.target.value)
         await fetch('https://protected-depths-73018.herokuapp.com/slack', {
                     method: 'POST',
                     credentials: 'include',
-                    body: JSON.stringify({ url: this.state.input }),
+                    body: JSON.stringify({ url: e.target.value }),
                     headers: {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Credentials': true,
+                        url: e.target.value
                     }
                 })
                 .then(res => res.json())
