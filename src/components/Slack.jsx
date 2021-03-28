@@ -58,7 +58,7 @@
                     <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Add Slack webhook url to get issue notifications</h4>
                     <form onSubmit={(e) => this.onSubmit(e)}>
                         <input className='inputField' type='text' name='url' placeholder='Paste url here..' onChange={(e) => this.handleChange(e)}/><br/>
-                        <button>Save</button>
+                        <button className='saveButton'>Save</button>
                     </form>
                     <div>
                         <Confirmation message={this.state.added} />
