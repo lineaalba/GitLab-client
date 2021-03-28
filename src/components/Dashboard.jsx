@@ -40,6 +40,7 @@ export default class Dashboard extends Component {
     }
            
     componentDidMount() {
+        // Fetch groups
         fetch('https://protected-depths-73018.herokuapp.com/groups', {
             method: 'GET',
             credentials: 'include',
