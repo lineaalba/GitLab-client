@@ -31,11 +31,12 @@
       async onSubmit(e) {
         // TODO: Remove form when user has clicked send
         e.preventDefault()
-        if (this.state.input.incluces('<' || '>' || '/')) {
-            console.log('not allowed')
+        // Do not add url if input includes possible harmful elements
+        if (this.state.input.incluces('<' || '>' || '/')) {,
+            // TODO: return not valid 
             return
         } else {
-        await fetch('/slack', {
+            await fetch('/slack', {
                     method: 'POST',
                     credentials: 'include',
                     body: JSON.stringify({ url: this.state.input, id: this.props.id }),
@@ -43,11 +44,10 @@
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Credentials': true,
                     }
-                })
-                .then(res => res.json())
-                .then(res => console.log(res))
-                .then(this.setState({ added: true }))
-            }
+            })
+            .then(res => res.json())
+            .then(this.setState({ added: true }))
+        }
     }
  
      render() { 
