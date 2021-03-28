@@ -38,6 +38,7 @@
                 .then(res => res.json())
                 .then(res => console.log(res))
                 .then(json => this.setState({ added: json }))
+                .then(console.log(this.state.added))
     }
  
      render() { 
