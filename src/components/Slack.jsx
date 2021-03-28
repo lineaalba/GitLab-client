@@ -36,7 +36,10 @@
                     }
                 })
                 .then(res => res.json())
-                .then(res => console.log(res))
+                .then(res => {
+                    if (res) {
+                        console.log('res' + res)
+                    }})
                 .then(json => this.setState({ added: json }))
     }
  
