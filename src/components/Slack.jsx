@@ -14,7 +14,7 @@
  export default class Slack extends Component {
     constructor() {
         super()
-        this.state = { webhook: '', input: '', added: '' }
+        this.state = { webhook: '', input: '', added: false }
     }
 
     handleChange = (e) => {
@@ -28,16 +28,15 @@
         await fetch('https://protected-depths-73018.herokuapp.com/slack', {
                     method: 'POST',
                     credentials: 'include',
-                    // body: JSON.stringify({ url: this.state.input }),
                     headers: {
                         'Content-Type': 'application/json',
+                        url: this.state.input,
                         'Access-Control-Allow-Credentials': true,
-                        url: this.state.input
                     }
                 })
                 .then(res => res.json())
                 .then(res => console.log(res))
-                .then(json => this.setState({ added: json }))
+                .then(this.setState({ added: true }))
                 .then(console.log(this.state.added))
     }
  
