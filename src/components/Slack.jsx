@@ -25,13 +25,17 @@
         this.setState({...this.state.input, input: e.target.value})
     }
 
-    /**
+     /**
     * Posts input value and project id and sets state added to true to get confirmation message
     */
-    async onSubmit(e) {
+      async onSubmit(e) {
         // TODO: Remove form when user has clicked send
         e.preventDefault()
-        await fetch('https://protected-depths-73018.herokuapp.com/slack', {
+        if (this.state.input.incluces('<' || '>' || '/')) {
+            console.log('not allowed')
+            return
+        } else {
+        await fetch('/slack', {
                     method: 'POST',
                     credentials: 'include',
                     body: JSON.stringify({ url: this.state.input, id: this.props.id }),
@@ -43,6 +47,7 @@
                 .then(res => res.json())
                 .then(res => console.log(res))
                 .then(this.setState({ added: true }))
+            }
     }
  
      render() { 
@@ -53,6 +58,7 @@
                 </div>
             )
         } else {
+            // TODO: should be able to choose not to get slack notifications
             return (
                 <div>
                     <h4 style={{color: '#fff', fontWeight: 'lighter'}}>Add Slack webhook url to get issue notifications</h4>
