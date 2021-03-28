@@ -28,7 +28,7 @@
         await fetch('https://protected-depths-73018.herokuapp.com/slack', {
                     method: 'POST',
                     credentials: 'include',
-                    body: JSON.stringify({ url: this.state.input }),
+                    // body: JSON.stringify({ url: this.state.input }),
                     headers: {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Credentials': true,
