@@ -24,15 +24,15 @@
 
     async onSubmit(e) {
         e.preventDefault()
-        console.log(e.target.value)
+        console.log(this.state.input)
         await fetch('https://protected-depths-73018.herokuapp.com/slack', {
                     method: 'POST',
                     credentials: 'include',
-                    body: JSON.stringify({ url: e.target.value }),
+                    body: JSON.stringify({ url: this.state.input }),
                     headers: {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Credentials': true,
-                        url: e.target.value
+                        url: this.state.input
                     }
                 })
                 .then(res => res.json())
