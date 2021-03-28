@@ -34,12 +34,12 @@
 
     handleChange = (e) => {
         e.preventDefault()
-        console.log('e: ' + e)
-        console.log(e.target)
+        console.log(e.target.value)
         this.setState({input: e.target.value})
     }
 
-    onSubmit () {
+    onSubmit (e) {
+        e.preventDefault()
         console.log(this.state.input)
     }
  
