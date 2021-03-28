@@ -16,7 +16,7 @@ import React, { Component } from 'react'
 export default class Projects extends Component {
    constructor() {
        super()
-       this.state = { webhook: [] }
+       this.state = { webhook: '' }
    }
 
    async addWebhook (id) {
