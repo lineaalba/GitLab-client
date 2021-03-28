@@ -42,3 +42,13 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.link {
+  font-size: large;
+  text-decoration: none;
+  color: rgb(197, 90, 19);
+  border: solid rgb(197, 90, 19);
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+}
+

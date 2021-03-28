@@ -1,20 +1,33 @@
-import React, { Component } from 'react'
-import Login from './Login'
+/**
+ * The Authentication component.
+ *
+ * @author Filippa Jakobsson
+ * @version 1.0
+ */
 
-export default class LoginOrLogout extends Component {
+import React, { Component } from 'react'
+import AuthLink from './AuthLink'
+
+/**
+* Returns the correct auth link depending on if the user is authenticated or not
+*/
+export default class Authentication extends Component {
     constructor() {
         super()
         this.state = { isLoggedIn: false }
     }
-
+    /**
+     * Fetching groups to determine if the user is authenticated
+     */
     componentDidMount() {
+        // trying to fetch groups to determine if the user is logged in
+        // TODO: make more dry by adding a specific component that 
+        // returns true if logged in
         fetch('https://protected-depths-73018.herokuapp.com/groups', {
             method: 'GET',
             credentials: 'include',
             headers: {
-                // 'Content-Type': 'application/json',
                 'Access-Control-Allow-Credentials': true,
-                // 'Access-Control-Allow-Origin' : '*',
             }
         })
         .then(res => res.json())
@@ -27,7 +40,7 @@ export default class LoginOrLogout extends Component {
 
     render() {
         return(
-            <Login message={this.state.isLoggedIn} />
+            <AuthLink message={this.state.isLoggedIn} />
         )
     }
 }
